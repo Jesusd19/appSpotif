@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 import { FeatureRoutingModule } from './app.routes';
 
 import { AppComponent } from './app.component';
@@ -19,7 +22,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    FeatureRoutingModule
+    FeatureRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
