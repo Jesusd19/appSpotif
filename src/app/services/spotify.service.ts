@@ -6,16 +6,28 @@ import { Injectable } from '@angular/core';
 })
 export class SpotifyService {
 
-  constructor(private http: HttpClient) {
-    console.log("Spotify services listo");
-   }
+  TOKEN_SPOTIFY: string;
 
-   getNewReleases() {
-     // Este token hay que generarlo para que la app funcione
-      const headers =  new HttpHeaders({
-        'Authorization':'Bearer BQCmE4yKyLZU_ZQ19Z0qRJ6_dphPAcof2-joz67D1Ux7LiJFqHKCEc0cmm5IjE5KX13NAbFvfbnzXM09yk8'
-      })
-      // Si queremos limitar agremamos ?limit=20
+  constructor(private http: HttpClient) {
+    this.TOKEN_SPOTIFY = 'BQC534TUNElYH-aWznRWXN7vc7HN-fEQTyJ7dlTq9NK99LaNqMwTqlwjJjXi9EbNvB53sbAOnazTvBk7ey0';
+    console.log("Spotify services listo");
+  }
+
+  getNewReleases() {
+    // Este token hay que generarlo para que la app funcione
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${ this.TOKEN_SPOTIFY }`
+    })
+    // Si queremos limitar agremamos ?limit=20
     return this.http.get('https://api.spotify.com/v1/browse/new-releases?limit=20', { headers });
-   }
+  }
+
+  getArtist(term: string) {
+    // Este token hay que generarlo para que la app funcione
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${ this.TOKEN_SPOTIFY }`
+    })
+    // Buscar tipo artista  
+    return this.http.get(`https://api.spotify.com/v1/search?q=${term}&type=artist&limit=15`, { headers });
+  }
 }

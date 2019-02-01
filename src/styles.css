@@ -5,6 +5,10 @@ body {
     color: white !important;
 }
 
+.card-columns {
+      column-count: 5;
+  }
+
 hr {
     border-color: white;
 }
@@ -65,12 +69,3 @@ hr {
 .fadeIn {
     animation-name: fadeIn;
 }
-
-.card-columns {
-    @include media-breakpoint-only(lg) {
-      column-count: 7;
-    }
-    @include media-breakpoint-only(xl) {
-      column-count: 4;
-    }
-  }
