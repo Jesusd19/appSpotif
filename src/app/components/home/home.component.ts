@@ -10,10 +10,10 @@ export class HomeComponent {
   newSongs: any[] = [];
 
   constructor( private servicesPotify: SpotifyService ) { 
+
     this.servicesPotify.getNewReleases()
     .subscribe( (data: any) => {
-      console.log(data.albums.items);
-      this.newSongs = data.albums.items;
+      this.newSongs = data;
     })    
   }
 }
