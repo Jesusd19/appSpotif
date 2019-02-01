@@ -12,7 +12,7 @@ export class SpotifyService {
   TOKEN_SPOTIFY: string;
 
   constructor(private http: HttpClient) {
-    this.TOKEN_SPOTIFY = 'BQDemuIWo2yVwtT0rlU2MStqCby7vKN43x1MSJ1ozJDPkWbL0_dv3-QA5yVHy8A89f-wm8yfzdHo1kWMz6Y';
+    this.TOKEN_SPOTIFY = 'BQAuhoiTXd4NsYYVbngkEkwcc9ZNLpoQjMtxuGVqTow7m8wJUySTAshZ6y3a_dBuGSsbZIDKLQLcjOKazuY';
     console.log("Spotify services listo");
   }
 
