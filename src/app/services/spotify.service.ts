@@ -12,7 +12,7 @@ export class SpotifyService {
   TOKEN_SPOTIFY: string;
 
   constructor(private http: HttpClient) {
-    this.TOKEN_SPOTIFY = 'BQBhWXiiwagdhW-rubqx82mBC_jGVVkvcHWtIS1n9N_hVFg0HVifrBvggpM9bHaAoX6szCkkJn4K9E-0UP0';
+    this.TOKEN_SPOTIFY = 'BQD4pMbgYmQcNvwhRwFN19VUaEl1tZp0rypDfAShj4QKpnjjBu_rAho_O1GXRBCmpsCTnkWPl4eLm3uGwHM';
     console.log("Spotify services listo");
   }
 
@@ -58,6 +58,11 @@ export class SpotifyService {
 
   getArtist(id: string) {
     return this.getQuery(`artists/${id}`)
-      // .pipe(map(data => data['artists'].items));      
+    // .pipe(map(data => data['artists'].items));      
+  }
+
+  getTopTracks(id: string) {
+    return this.getQuery(`artists/${id}/top-tracks?country=us`)
+      .pipe(map(data => data['tracks']));
   }
 }

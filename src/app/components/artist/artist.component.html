@@ -7,10 +7,37 @@
   <div class="col">
     <h3>{{ artist.name }}</h3>
     <p>
-      <a [href]="artist.external_urls.spotify" target="_blank">Go to page of artist</a>
+      <a [href]="artist.external_urls.spotify" target="_blank">Go to the artist's page</a>
     </p>
   </div>
   <div class="col-4 text-right ">
     <button [routerLink]="[ '/search' ]" class="btn btn-outline-danger">Back</button>
+  </div>
+</div>
+
+<div class="row mt-sm-3">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Album</th>
+          <th>Song </th>
+          <th>Preview</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let track of toptracks">
+          <td>
+            <img [src]="track.album.images | noimages" class="img-thumb">
+          </td>
+          <td>{{ track.album.name }}</td>
+          <td>{{ track.name }}</td>
+          <td>
+            <audio [src]="track.preview_url" controls></audio>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
