@@ -12,7 +12,7 @@ export class SpotifyService {
   TOKEN_SPOTIFY: string;
 
   constructor(private http: HttpClient) {
-    this.TOKEN_SPOTIFY = 'BQBrrH4WUMtoQ-vOX00zgqkjkIFkTQIdub1FUxuAfGSR7UG_VEljob71UJaK5CKa4nLQ0HnwlM__uCubrGg';
+    this.TOKEN_SPOTIFY = 'BQBhWXiiwagdhW-rubqx82mBC_jGVVkvcHWtIS1n9N_hVFg0HVifrBvggpM9bHaAoX6szCkkJn4K9E-0UP0';
     console.log("Spotify services listo");
   }
 
@@ -40,7 +40,7 @@ export class SpotifyService {
     // .pipe(map(data => data['albums'].items));
   }
 
-  getArtist(term: string) {
+  getArtists(term: string) {
 
     return this.getQuery(`search?q=${term}&type=artist&limit=15`)
       .pipe(map(data => data['artists'].items));
@@ -52,5 +52,12 @@ export class SpotifyService {
     // Buscar tipo artista  <
     // return this.http.get(`https://api.spotify.com/v1/search?q=${term}&type=artist&limit=15`, { headers })
     //   .pipe(map(data => data['artists'].items));
+  }
+
+  // https://api.spotify.com/v1/artists/{id}
+
+  getArtist(id: string) {
+    return this.getQuery(`artists/${id}`)
+      // .pipe(map(data => data['artists'].items));      
   }
 }
